@@ -1,8 +1,8 @@
 
 const MODULE_API_URL =
-    'http://localhost:8080/api/course/CID/module/MID/lesson';
+    'https://wbdv-s2-1.herokuapp.com/api/course/CID/module/MID/lesson';
 const BASE_URL =
-    'http://localhost:8080/api/module/MID'
+    'https://wbdv-s2-1.herokuapp.com/api/module/MID'
 
 let _singleton = Symbol();
 export default class LessonService {
@@ -34,7 +34,7 @@ export default class LessonService {
     }
 
     deleteLesson(lessonID) {
-        return fetch('http://localhost:8080/api/lesson/' + lessonID,
+        return fetch('https://wbdv-s2-1.herokuapp.com/api/lesson/' + lessonID,
             {
                 method: 'DELETE'
             }).then(function (resp) {

@@ -5,7 +5,7 @@
 
 let _singleton = Symbol();
 class CourseService {
-    SERVER_URL = 'http://localhost:8080/api/course';
+    SERVER_URL = 'https://wbdv-s2-1.herokuapp.com/api/course';
 
     deleteCourse(courseId) {
         return fetch(this.SERVER_URL + '/' + courseId, {

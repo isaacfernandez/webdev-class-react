@@ -1,8 +1,8 @@
 
 const MODULE_API_URL =
-    'http://localhost:8080/api/course/CID/module';
+    'https://wbdv-s2-1.herokuapp.com/api/course/CID/module';
 const BASE_URL =
-    'http://localhost:8080/api/module/MID'
+    'https://wbdv-s2-1.herokuapp.com/api/module/MID'
 
 let _singleton = Symbol();
 export default class ModuleService {
