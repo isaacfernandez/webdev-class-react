@@ -2,9 +2,6 @@ import React from 'react';
 import CourseCard from '../components/CourseCard'
 import CourseService from "../services/CourseService";
 import CourseList from "./CourseList";
-import {BrowserRouter, Route, Router} from "react-router-dom";
-import CourseEditor from "./CourseEditor";
-
 
 export default class CourseManager extends React.Component {
     constructor() {

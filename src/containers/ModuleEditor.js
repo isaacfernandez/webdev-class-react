@@ -9,7 +9,7 @@ export default class ModuleEditor extends React.Component {
             return null;
         } else {
             return (
-                <div className="row">
+                <div className="col-9">
                     <h2>{this.props.module.title}</h2>
                     <LessonTabs id={this.props.module.id}/>
                 </div>

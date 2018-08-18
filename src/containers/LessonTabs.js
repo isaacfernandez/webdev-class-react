@@ -1,6 +1,7 @@
 import React from 'react';
 import Lesson from "../components/Lesson";
 import LessonService from "../services/LessonService";
+import WidgetListContainer from "./WidgetListContainer";
 
 
 export default class LessonTabs extends React.Component {
@@ -8,12 +9,14 @@ export default class LessonTabs extends React.Component {
     constructor() {
         super();
         this.state = {
+            selectedLesson: '',
             moduleID: null,
             lessonTitle: '',
             lessons: []
         };
 
         this.setLessons = this.setLessons.bind(this);
+        this.setSelectedLesson = this.setSelectedLesson.bind(this);
         this.findLessonsForModule = this.findLessonsForModule.bind(this);
 
         this.renderAllLesson = this.renderAllLesson.bind(this);
@@ -25,6 +28,10 @@ export default class LessonTabs extends React.Component {
 
     setLessons(lessons) {
         this.setState({lessons: lessons});
+    }
+
+    setSelectedLesson(lesson) {
+        this.setState({selectedLesson: lesson})
     }
 
     setModuleID(mID) {
@@ -58,6 +65,7 @@ export default class LessonTabs extends React.Component {
                 lesson={lesson}
                 key={lesson.id}
                 del={self.deleteLesson}
+                selles={self.setSelectedLesson}
             />
         });
         return rendered;
@@ -83,7 +91,7 @@ export default class LessonTabs extends React.Component {
         return (
             <div>
                 <h2>{this.props.title}</h2>
-                <div className="card" style={{width: '18rem'}}>
+                <div className="card pull-left" style={{width: '16rem'}}>
                     <div className="card-body">
                         <input onChange={this.titleChanged}
                                value={this.state.lessonTitle}
@@ -92,10 +100,12 @@ export default class LessonTabs extends React.Component {
                         <button onClick={() => this.createLesson(this.state.lessonTitle)}
                                 className="btn btn-primary">Create</button>
                     </div>
+                    <div>
+                        {this.renderAllLesson()}
+                    </div>
                 </div>
-                <div className="row">
-                {this.renderAllLesson()}
-                </div>
+
+                <WidgetListContainer lessonId={this.state.selectedLesson.id} />
             </div>);
     }
 }
